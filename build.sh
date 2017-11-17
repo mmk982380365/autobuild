@@ -2,13 +2,12 @@
 
 prog="编译 打包"
 
-#CODE_SIGN_IDENTITY="iPhone Developer: 982380365@qq.com (3937MHCH29)" PROVISIONING_PROFILE=$PROVISIONING_PROFILE_UUID
 
 #基础常量
 #证书
-CERTIFICATION_NAME='iPhone Developer: 982380365@qq.com (3937MHCH29)'
+CERTIFICATION_NAME=''
 #描述文件
-PROVISIONING_PROFILE_UUID="a6742559-adc2-48c0-9f72-bae327e46aea"
+PROVISIONING_PROFILE_UUID=""
 #打包用到的plist文件路径
 OptionPlistPath='ipaInfo.plist'
 #输出路径
