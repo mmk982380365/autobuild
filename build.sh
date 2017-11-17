@@ -14,6 +14,8 @@ OptionPlistPath='ipaInfo.plist'
 #输出路径
 OUTPUT_PATH='output'
 
+prepare () {
+
 # 确认工程是否使用了workspace
 # 1: workspace 2: project
 TYPE=0
@@ -81,9 +83,11 @@ else
 echo "this is not a xcode project"
 exit 1
 fi
+}
 
 #编译项目
 build () {
+prepare
 if [ $TYPE = 1 ]; then
 xcodebuild build -workspace $WORKSPACE -scheme $SCHEME -derivedDataPath $BUILDPATH | xcpretty
 elif [ $TYPE = 2 ]; then
@@ -93,6 +97,7 @@ fi
 
 #清理项目
 clean () {
+prepare
 if [ $TYPE = 1 ]; then
 xcodebuild clean -workspace $WORKSPACE -scheme $SCHEME -derivedDataPath $BUILDPATH | xcpretty
 elif [ $TYPE = 2 ]; then
@@ -102,7 +107,7 @@ fi
 
 #打包项目
 archive () {
-
+prepare
 if [ ! -f $OptionPlistPath ]; then
 #echo "exportOptionsPlist not exist! Please type \"$(basename $0) createPlist\""
 createPlist
