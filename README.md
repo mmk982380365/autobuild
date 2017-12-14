@@ -1,5 +1,5 @@
 # autobuild
-xcode编译打包脚本
+xcode编译打包
 
 ## Usage
 
